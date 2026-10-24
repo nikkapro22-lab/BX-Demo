@@ -6,11 +6,11 @@ Demo visual gratuita para explorar BX, navegar por sus secciones y probar sus in
 
 No necesitas una cuenta de GitHub, Node.js ni herramientas de programación.
 
-| Equipo | Descarga |
-| --- | --- |
-| Windows de 64 bits (Intel/AMD) | [Instalador para Windows](https://github.com/nikkapro22-lab/BX-Demo/releases/latest/download/BX-Demo-0.1.0-win-x64.exe) |
-| Mac con Apple Silicon (M1, M2, M3, M4 o posterior) | [Instalador para Mac Apple Silicon](https://github.com/nikkapro22-lab/BX-Demo/releases/latest/download/BX-Demo-0.1.0-mac-arm64.dmg) |
-| Mac con procesador Intel | [Instalador para Mac Intel](https://github.com/nikkapro22-lab/BX-Demo/releases/latest/download/BX-Demo-0.1.0-mac-x64.dmg) |
+| Equipo | Descarga | Tamaño |
+| --- | --- | --- |
+| Windows de 64 bits (Intel/AMD) | [Instalador para Windows](https://github.com/nikkapro22-lab/BX-Demo/releases/latest/download/BX-Demo-0.1.0-win-x64.exe) | 375 MB |
+| Mac con Apple Silicon (M1, M2, M3, M4 o posterior) | [Instalador para Mac Apple Silicon](https://github.com/nikkapro22-lab/BX-Demo/releases/latest/download/BX-Demo-0.1.0-mac-arm64.dmg) | 391 MB |
+| Mac con procesador Intel | [Instalador para Mac Intel](https://github.com/nikkapro22-lab/BX-Demo/releases/latest/download/BX-Demo-0.1.0-mac-x64.dmg) | 394 MB |
 
 [Ver todas las versiones y sus notas](https://github.com/nikkapro22-lab/BX-Demo/releases).
 
@@ -19,6 +19,8 @@ No necesitas una cuenta de GitHub, Node.js ni herramientas de programación.
 **Mac:** descarga el `.dmg`, ábrelo y arrastra **BX Demo** a **Aplicaciones**. Luego abre BX Demo desde Aplicaciones. Puedes consultar tu procesador en  → Acerca de esta Mac.
 
 Esta prueba no tiene certificados comerciales ni notarización de Apple. El sistema puede mostrar avisos o bloquearla según sus políticas. Comprueba que descargaste desde este repositorio; no desactives las protecciones del equipo. En equipos administrados puede requerirse ayuda del responsable de informática. Información oficial: [abrir aplicaciones en Mac](https://support.apple.com/es-es/102445).
+
+Esta distribución contiene la aplicación BX y sus recursos necesarios. No incluye los mundos, las rutas ni la interfaz global de la academia HEROES.
 
 ## Qué puedes explorar
 

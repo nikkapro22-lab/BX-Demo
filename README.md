@@ -44,3 +44,7 @@ Indica tu sistema operativo, la sección visitada, qué esperabas y qué ocurri�
 Este repositorio distribuye los instaladores y sus instrucciones. El proyecto de desarrollo de BX se mantiene separado. Los binarios contienen los recursos necesarios para ejecutar la demo; esto no implica publicar el repositorio de desarrollo ni ofrecer una licencia de código abierto.
 
 © BX. Distribución gratuita para evaluación educativa. No se concede permiso para redistribuir, revender ni usar los recursos visuales por separado.
+
+## Verificación de esta versión
+
+Se comprobó la apertura y navegación en Mac Apple Silicon. Los instaladores de [Windows](https://github.com/nikkapro22-lab/BX-Demo/actions/runs/40067585652) y [Mac Intel](https://github.com/nikkapro22-lab/BX-Demo/actions/runs/40067658336) también pasaron sus verificaciones nativas. Los tres archivos públicos coinciden con sus sumas SHA-256 locales.

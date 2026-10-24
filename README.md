@@ -8,9 +8,9 @@ No necesitas una cuenta de GitHub, Node.js ni herramientas de programación.
 
 | Equipo | Descarga | Tamaño |
 | --- | --- | --- |
-| Windows de 64 bits (Intel/AMD) | [Instalador para Windows](https://github.com/nikkapro22-lab/BX-Demo/releases/latest/download/BX-Demo-0.1.0-win-x64.exe) | 375 MB |
-| Mac con Apple Silicon (M1, M2, M3, M4 o posterior) | [Instalador para Mac Apple Silicon](https://github.com/nikkapro22-lab/BX-Demo/releases/latest/download/BX-Demo-0.1.0-mac-arm64.dmg) | 391 MB |
-| Mac con procesador Intel | [Instalador para Mac Intel](https://github.com/nikkapro22-lab/BX-Demo/releases/latest/download/BX-Demo-0.1.0-mac-x64.dmg) | 394 MB |
+| Windows de 64 bits (Intel/AMD) | [Instalador para Windows](https://github.com/nikkapro22-lab/BX-Demo/releases/download/v0.1.0/BX-Demo-0.1.0-win-x64.exe) | 375 MB |
+| Mac con Apple Silicon (M1, M2, M3, M4 o posterior) | [Instalador para Mac Apple Silicon](https://github.com/nikkapro22-lab/BX-Demo/releases/download/v0.1.0/BX-Demo-0.1.0-mac-arm64.dmg) | 391 MB |
+| Mac con procesador Intel | [Instalador para Mac Intel](https://github.com/nikkapro22-lab/BX-Demo/releases/download/v0.1.0/BX-Demo-0.1.0-mac-x64.dmg) | 394 MB |
 
 [Ver todas las versiones y sus notas](https://github.com/nikkapro22-lab/BX-Demo/releases).
 

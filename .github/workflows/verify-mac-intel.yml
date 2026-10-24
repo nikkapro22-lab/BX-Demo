@@ -1,0 +1,27 @@
+name: Verify Mac Intel demo
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  open-packaged-demo:
+    runs-on: macos-15-intel
+    timeout-minutes: 12
+    steps:
+      - name: Download the public installer
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: gh release download v0.1.0 --repo "$GH_REPO" --pattern '*-mac-x64.dmg' --dir download
+      - name: Verify and mount the installer
+        run: |
+          hdiutil verify download/*.dmg
+          mkdir -p "$RUNNER_TEMP/bx-demo"
+          hdiutil attach -nobrowse -mountpoint "$RUNNER_TEMP/bx-demo" download/*.dmg
+      - name: Open BX and verify navigation and local assets
+        run: |
+          "$RUNNER_TEMP/bx-demo/BX Demo.app/Contents/MacOS/BX Demo" --student-smoke
+          grep -q BX_STUDENT_SMOKE_PASS "$HOME/Library/Application Support/BX Student Demo/startup.log"
+      - name: Show startup diagnostics
+        if: always()
+        run: cat "$HOME/Library/Application Support/BX Student Demo/startup.log" || true

@@ -1,0 +1,63 @@
+name: Verify BX full installers
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Release tag
+        required: true
+        default: v0.2.0
+permissions:
+  contents: read
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 25
+    steps:
+      - name: Download installer
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: gh release download $env:RELEASE_TAG --repo $env:GH_REPO --pattern '*-win-x64.exe' --dir download
+      - name: Install and verify BX full
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $installer = Get-ChildItem download/*.exe | Select-Object -First 1
+          $destination = Join-Path $env:RUNNER_TEMP 'bx-full'
+          $install = Start-Process -FilePath $installer.FullName -ArgumentList '/S', "/D=$destination" -Wait -PassThru
+          if ($install.ExitCode -ne 0) { throw "Installer failed: $($install.ExitCode)" }
+          $executable = Join-Path $destination 'BX.exe'
+          if (!(Test-Path $executable)) { throw 'BX executable missing' }
+          $process = Start-Process -FilePath $executable -ArgumentList '--bx-package-smoke' -PassThru -RedirectStandardOutput smoke.log -RedirectStandardError smoke-error.log
+          if (!$process.WaitForExit(210000)) { Stop-Process -Id $process.Id -Force; throw 'BX startup timed out' }
+          Get-Content smoke.log
+          Get-Content smoke-error.log
+          if ($process.ExitCode -ne 0 -or !(Select-String -Path smoke.log -Pattern 'BX_FULL_SMOKE_PASS' -Quiet)) { throw 'BX packaged startup failed' }
+      - name: Diagnostics
+        if: always()
+        shell: pwsh
+        run: |
+          Get-ChildItem "$env:TEMP/bx-package-smoke-*/startup.log" -ErrorAction SilentlyContinue | ForEach-Object { Get-Content $_ }
+  mac-intel:
+    runs-on: macos-15-intel
+    timeout-minutes: 20
+    steps:
+      - name: Download installer
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: gh release download "$RELEASE_TAG" --repo "$GH_REPO" --pattern '*-mac-x64.dmg' --dir download
+      - name: Verify and mount
+        run: |
+          hdiutil verify download/*.dmg
+          mkdir -p "$RUNNER_TEMP/bx-full"
+          hdiutil attach -nobrowse -mountpoint "$RUNNER_TEMP/bx-full" download/*.dmg
+      - name: Verify BX full startup
+        run: |
+          "$RUNNER_TEMP/bx-full/BX.app/Contents/MacOS/BX" --bx-package-smoke | tee smoke.log
+          grep -q BX_FULL_SMOKE_PASS smoke.log
+      - name: Diagnostics
+        if: always()
+        run: find "$TMPDIR" -path '*/bx-package-smoke-*/startup.log' -exec cat {} \; || true

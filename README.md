@@ -1,50 +1,33 @@
-# BX · Demo para estudiantes
+# BX completo
 
-Demo visual gratuita para explorar BX, navegar por sus secciones y probar sus interacciones locales. Es una versión de prueba: la IA y los servicios empresariales no están conectados.
+Descarga BX 0.2.0 para Windows y Mac. Esta entrega incluye la aplicación completa actual y su servidor local, con arranque por doble clic. No requiere instalar Node.js ni tener una cuenta de GitHub.
 
-## Descargar e instalar
+| Equipo | Instalador |
+| --- | --- |
+| Windows x64 (Intel/AMD) | [Descargar para Windows](https://github.com/nikkapro22-lab/BX-Demo/releases/download/v0.2.0/BX-0.2.0-win-x64.exe) |
+| Mac Apple Silicon (M1 y posteriores) | [Descargar para Mac Apple Silicon](https://github.com/nikkapro22-lab/BX-Demo/releases/download/v0.2.0/BX-0.2.0-mac-arm64.dmg) |
+| Mac Intel | [Descargar para Mac Intel](https://github.com/nikkapro22-lab/BX-Demo/releases/download/v0.2.0/BX-0.2.0-mac-x64.dmg) |
 
-No necesitas una cuenta de GitHub, Node.js ni herramientas de programación.
+[Notas y sumas SHA-256 de la versión](https://github.com/nikkapro22-lab/BX-Demo/releases/tag/v0.2.0).
 
-| Equipo | Descarga | Tamaño |
-| --- | --- | --- |
-| Windows de 64 bits (Intel/AMD) | [Instalador para Windows](https://github.com/nikkapro22-lab/BX-Demo/releases/download/v0.1.0/BX-Demo-0.1.0-win-x64.exe) | 375 MB |
-| Mac con Apple Silicon (M1, M2, M3, M4 o posterior) | [Instalador para Mac Apple Silicon](https://github.com/nikkapro22-lab/BX-Demo/releases/download/v0.1.0/BX-Demo-0.1.0-mac-arm64.dmg) | 391 MB |
-| Mac con procesador Intel | [Instalador para Mac Intel](https://github.com/nikkapro22-lab/BX-Demo/releases/download/v0.1.0/BX-Demo-0.1.0-mac-x64.dmg) | 394 MB |
+En Windows, ejecuta el instalador y sigue sus pasos. En Mac, abre el DMG y arrastra **BX** a **Aplicaciones**. Consulta tu procesador en  → Acerca de esta Mac.
 
-[Ver todas las versiones y sus notas](https://github.com/nikkapro22-lab/BX-Demo/releases).
+Los instaladores no tienen firma comercial de Windows ni notarización de Apple. El sistema operativo puede mostrar advertencias. No se requiere desactivar las protecciones del equipo.
 
-**Windows:** descarga el `.exe`, abre el instalador y sigue sus pasos. La instalación es por usuario y permite elegir carpeta.
+## Alcance de esta entrega
 
-**Mac:** descarga el `.dmg`, ábrelo y arrastra **BX Demo** a **Aplicaciones**. Luego abre BX Demo desde Aplicaciones. Puedes consultar tu procesador en  → Acerca de esta Mac.
+La versión 0.2.0 conserva el código y las rutas actuales de la aplicación. Es distinta de la demo limitada 0.1.0 para estudiantes, que continúa disponible en [versiones anteriores](https://github.com/nikkapro22-lab/BX-Demo/releases/tag/v0.1.0).
 
-Esta prueba no tiene certificados comerciales ni notarización de Apple. El sistema puede mostrar avisos o bloquearla según sus políticas. Comprueba que descargaste desde este repositorio; no desactives las protecciones del equipo. En equipos administrados puede requerirse ayuda del responsable de informática. Información oficial: [abrir aplicaciones en Mac](https://support.apple.com/es-es/102445).
+El perfil **BX Full** guarda los datos de esta instalación. No importa automáticamente las sesiones, bibliotecas ni cuentas del autor, de la aplicación de desarrollo o de la demo estudiantil. No incluye claves privadas ni datos de empresas.
 
-Esta distribución contiene la aplicación BX y sus recursos necesarios. No incluye los mundos, las rutas ni la interfaz global de la academia HEROES.
+Las funciones que dependen de modelos locales, Python/transcripción, Astrax/Hermes, infraestructura de reuniones, proveedores de IA, OAuth o servicios empresariales requieren sus propios runtimes, cuentas y configuración en el equipo de destino. Incluir sus interfaces y código no conecta esos servicios automáticamente. Sus controles de autenticación se conservan. Un archivo opcional `bx.env` en el perfil BX Full permite configurar los servicios propios de la instalación.
 
-## Qué puedes explorar
+## Este repositorio
 
-- Interfaz de BX y navegación de sus espacios de trabajo.
-- Herramientas e interacciones implementadas de forma local.
-- Datos de ejemplo; no representan operaciones ni resultados reales.
-- El navegador integrado puede abrir sitios externos; necesita Internet y depende de cada proveedor.
+El nombre histórico **BX-Demo** se conserva como canal público de descargas. El código de desarrollo permanece en su repositorio privado. Distribuir los binarios no concede una licencia de código abierto ni permiso para extraer o redistribuir los recursos visuales por separado.
 
-La IA, la sincronización remota, los agentes y las integraciones empresariales no se conectan en esta demo. No incluye servicios de pago. Algunas funciones mostrarán un estado no disponible.
+Para reportar un problema, indica sistema operativo, versión y sección visitada en [Issues](https://github.com/nikkapro22-lab/BX-Demo/issues). Los reportes son públicos: evita incluir claves o datos personales.
 
-## Tus datos
+## Verificación
 
-La demo usa un perfil separado llamado **BX Student Demo**. Los cambios locales pertenecen a tu equipo; no se sincronizan con el profesor ni con otros estudiantes. No introduces las sesiones o archivos del creador al instalar la demo. Usa datos ficticios durante la exploración. Las páginas externas que abras se rigen por sus propios servicios.
-
-## Comentarios
-
-Indica tu sistema operativo, la sección visitada, qué esperabas y qué ocurrió. Puedes [abrir un reporte](https://github.com/nikkapro22-lab/BX-Demo/issues/new). Los reportes son públicos: evita incluir contraseñas o información personal.
-
-## Acerca de este repositorio
-
-Este repositorio distribuye los instaladores y sus instrucciones. El proyecto de desarrollo de BX se mantiene separado. Los binarios contienen los recursos necesarios para ejecutar la demo; esto no implica publicar el repositorio de desarrollo ni ofrecer una licencia de código abierto.
-
-© BX. Distribución gratuita para evaluación educativa. No se concede permiso para redistribuir, revender ni usar los recursos visuales por separado.
-
-## Verificación de esta versión
-
-Se comprobó la apertura y navegación en Mac Apple Silicon. Los instaladores de [Windows](https://github.com/nikkapro22-lab/BX-Demo/actions/runs/40067585652) y [Mac Intel](https://github.com/nikkapro22-lab/BX-Demo/actions/runs/40067658336) también pasaron sus verificaciones nativas. Los tres archivos públicos coinciden con sus sumas SHA-256 locales.
+La instalación y el arranque de [Windows](https://github.com/nikkapro22-lab/BX-Demo/actions/runs/40617625821) y la apertura de [Mac Intel](https://github.com/nikkapro22-lab/BX-Demo/actions/runs/40616066080) pasaron sus pruebas nativas. Mac Apple Silicon pasó la prueba de arranque local con el paquete final. Ambos DMG pasaron `hdiutil verify`; las tres sumas SHA-256 coinciden con los archivos alojados en GitHub.

@@ -25,7 +25,7 @@ jobs:
           GH_REPO: ${{ github.repository }}
           RELEASE_TAG: ${{ inputs.tag }}
         run: gh release download $env:RELEASE_TAG --repo $env:GH_REPO --pattern '*-win-x64.exe' --dir download
-      - name: Install and verify BX full
+      - name: Install BX full
         shell: pwsh
         run: |
           $ErrorActionPreference = 'Stop'
@@ -35,6 +35,12 @@ jobs:
           if ($install.ExitCode -ne 0) { throw "Installer failed: $($install.ExitCode)" }
           $executable = Join-Path $destination 'BX.exe'
           if (!(Test-Path $executable)) { throw 'BX executable missing' }
+          Write-Output 'BX_WINDOWS_INSTALL_PASS'
+      - name: Verify BX full startup across drives
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $executable = Join-Path $env:RUNNER_TEMP 'bx-full/BX.exe'
           $process = Start-Process -FilePath $executable -ArgumentList '--bx-package-smoke' -PassThru -RedirectStandardOutput smoke.log -RedirectStandardError smoke-error.log
           if (!$process.WaitForExit(210000)) { Stop-Process -Id $process.Id -Force; throw 'BX startup timed out' }
           Get-Content smoke.log

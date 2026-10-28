@@ -33,7 +33,9 @@ jobs:
           if (!$process.WaitForExit(210000)) { Stop-Process -Id $process.Id -Force; throw 'BX startup timed out' }
           Get-Content smoke.log
           Get-Content smoke-error.log
-          if ($process.ExitCode -ne 0 -or !(Select-String -Path smoke.log -Pattern 'BX_FULL_SMOKE_PASS' -Quiet)) { throw 'BX packaged startup failed' }
+          $logs = Get-ChildItem "$env:TEMP/bx-package-smoke-*/startup.log" -ErrorAction SilentlyContinue
+          $passed = $logs | Select-String -Pattern 'BX_FULL_SMOKE_PASS' -Quiet
+          if ($process.ExitCode -ne 0 -or !$passed) { throw 'BX packaged startup failed' }
       - name: Diagnostics
         if: always()
         shell: pwsh
@@ -57,7 +59,7 @@ jobs:
       - name: Verify BX full startup
         run: |
           "$RUNNER_TEMP/bx-full/BX.app/Contents/MacOS/BX" --bx-package-smoke | tee smoke.log
-          grep -q BX_FULL_SMOKE_PASS smoke.log
+          find "$TMPDIR" -path '*/bx-package-smoke-*/startup.log' -exec grep -l BX_FULL_SMOKE_PASS {} \; | grep -q .
       - name: Diagnostics
         if: always()
         run: find "$TMPDIR" -path '*/bx-package-smoke-*/startup.log' -exec cat {} \; || true

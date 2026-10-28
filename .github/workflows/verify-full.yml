@@ -6,10 +6,16 @@ on:
         description: Release tag
         required: true
         default: v0.2.0
+      platform:
+        description: Platform to verify
+        type: choice
+        options: [all, windows, mac-intel]
+        default: all
 permissions:
   contents: read
 jobs:
   windows:
+    if: inputs.platform != 'mac-intel'
     runs-on: windows-latest
     timeout-minutes: 25
     steps:
@@ -42,6 +48,7 @@ jobs:
         run: |
           Get-ChildItem "$env:TEMP/bx-package-smoke-*/startup.log" -ErrorAction SilentlyContinue | ForEach-Object { Get-Content $_ }
   mac-intel:
+    if: inputs.platform != 'windows'
     runs-on: macos-15-intel
     timeout-minutes: 20
     steps:
